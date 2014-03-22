@@ -7,4 +7,5 @@ class Ticket
   field :reference, type: String
   field :url, type: String
   belongs_to :department
+  embeds_many :events, class_name: 'TicketEvent', cascade_callbacks: true
 end
