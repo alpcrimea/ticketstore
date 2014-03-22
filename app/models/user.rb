@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -8,6 +9,7 @@ class User
 
   ## Database authenticatable
   field :email,              type: String, default: ""
+  field :name,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
 
   ## Recoverable

@@ -11,4 +11,7 @@
 <% end %>
 <% if user_signed_in? %>
   <li><%= link_to 'Users', users_path %></li>
+  <li><%= link_to 'Departments', departments_path %></li>
+  <li><%= link_to 'Statuses', ticket_statuses_path %></li>
+  <li><%= link_to 'Tickets', tickets_path %></li>
 <% end %>
