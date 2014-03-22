@@ -38,6 +38,9 @@ class TicketsController < ApplicationController
     end
   end
 
+  def reply
+
+  end
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
   def update
@@ -71,6 +74,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:name, :email, :subject, :body, :reference, :url, :department_id)
+      params.require(:ticket).permit(:name, :email, :subject, :body, :url, :department_id)
     end
 end

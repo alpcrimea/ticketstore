@@ -3,6 +3,7 @@ Ticketstore::Application.routes.draw do
 
   resources :ticket_statuses
 
+  get '/tickets/:id/reply', to: 'tickets#reply', as: 'reply_ticket'
   resources :tickets
 
   root :to => "home#index"

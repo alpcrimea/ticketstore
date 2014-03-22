@@ -1,3 +1,4 @@
+require 'appcode'
 class Ticket
   include Mongoid::Document
   field :name, type: String
@@ -8,4 +9,10 @@ class Ticket
   field :url, type: String
   belongs_to :department
   embeds_many :events, class_name: 'TicketEvent', cascade_callbacks: true
+  validates_presence_of :name,:email,:subject,:body
+
+  # Setting unique reference into ticket
+  before_save do
+    self.reference||=appcode
+  end
 end
