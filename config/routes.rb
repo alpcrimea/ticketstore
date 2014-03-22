@@ -1,4 +1,6 @@
 Ticketstore::Application.routes.draw do
+  resources :ticket_statuses
+
   resources :tickets
 
   root :to => "home#index"
