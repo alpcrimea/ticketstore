@@ -6,4 +6,5 @@ class Ticket
   field :body, type: String
   field :reference, type: String
   field :url, type: String
+  belongs_to :department
 end

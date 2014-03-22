@@ -15,6 +15,7 @@ class TicketsController < ApplicationController
   # GET /tickets/new
   def new
     @ticket = Ticket.new
+    @departments = Department.all
   end
 
   # GET /tickets/1/edit
@@ -40,6 +41,7 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
   def update
+    #logger.debug ticket_params.inspect
     respond_to do |format|
       if @ticket.update(ticket_params)
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
@@ -69,6 +71,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:name, :email, :subject, :body, :reference, :url)
+      params.require(:ticket).permit(:name, :email, :subject, :body, :reference, :url, :department_id)
     end
 end
