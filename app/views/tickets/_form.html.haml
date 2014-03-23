@@ -19,9 +19,6 @@
     = f.label :body
     = f.text_area :body,rows:5
   .field
-    = f.label :url
-    = f.text_field :url
-  .field
     = f.label :department
     = f.collection_select :department_id, Department.all, :id, :name
   .actions
