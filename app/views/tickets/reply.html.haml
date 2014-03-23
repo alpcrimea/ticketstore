@@ -1,4 +1,4 @@
-%h1 Replying ticket
+%h1= "Replying ticket #{@ticket.reference}"
 
 = render "reply_ticket"
 = link_to 'Show', @ticket

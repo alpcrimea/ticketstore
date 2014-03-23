@@ -8,6 +8,7 @@ class Ticket
   field :reference, type: String
   field :url, type: String
   belongs_to :department
+  belongs_to :owner, class_name: 'User'
   embeds_many :events, class_name: 'TicketEvent', cascade_callbacks: true
   validates_presence_of :name,:email,:subject,:body
 
