@@ -39,7 +39,18 @@ class TicketsController < ApplicationController
   end
 
   def reply
-
+    @ticket=Ticket.find(params[:id])
+    @event=TicketEvent.new
+    if params['ticket_event']
+      @ticket.events<<TicketEvent.new(from_client:true,reply:params['ticket_event']['reply'])
+      respond_to do |format|
+        if @ticket.save
+          format.html { redirect_to reply_ticket_path, notice: 'Ticket was successfully updated. ' }
+        else
+          format.html { render action: 'index' }
+        end
+      end
+    end
   end
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json

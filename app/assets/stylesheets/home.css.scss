@@ -1,0 +1,19 @@
+#columns {
+    display: table;
+    box-sizing: border-box;  /* не поддерживается в CSS2 */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#columns > div,
+#columns > noindex > div {
+    display: table-cell;
+    vertical-align: top;
+    width: auto;
+    padding-right: 10px;
+    box-sizing: border-box;  /* не поддерживается в CSS2 */
+}
+
+div#label {
+  font-weight: bold;
+}

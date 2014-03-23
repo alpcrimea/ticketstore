@@ -2,27 +2,21 @@
 
 %table
   %tr
+    %th Reference
     %th Name
     %th Email
     %th Subject
     %th Body
-    %th Reference
-    %th Url
-    %th
-    %th
     %th
 
   - @tickets.each do |ticket|
     %tr
+      %td= ticket.reference
       %td= ticket.name
       %td= ticket.email
       %td= ticket.subject
       %td= ticket.body
-      %td= ticket.reference
-      %td= ticket.url
-      %td= link_to 'Show', ticket
       %td= link_to 'Reply', reply_ticket_path(ticket)
-      %td= link_to 'Edit', edit_ticket_path(ticket)
       %td= link_to 'Destroy', ticket, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
