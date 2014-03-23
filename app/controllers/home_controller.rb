@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @ticket=Ticket.new
+    @redirect="view_ticket_path"
   end
   def view_ticket
     @params=params

@@ -31,6 +31,7 @@ describe TicketsController do
   let(:valid_session) { {} }
 
   describe "GET index" do
+    login_user
     it "assigns all tickets as @tickets" do
       ticket = Ticket.create! valid_attributes
       get :index, {}, valid_session
@@ -39,6 +40,7 @@ describe TicketsController do
   end
 
   describe "GET show" do
+    login_user
     it "assigns the requested ticket as @ticket" do
       ticket = Ticket.create! valid_attributes
       get :show, {:id => ticket.to_param}, valid_session
@@ -47,6 +49,7 @@ describe TicketsController do
   end
 
   describe "GET new" do
+    login_user
     it "assigns a new ticket as @ticket" do
       get :new, {}, valid_session
       assigns(:ticket).should be_a_new(Ticket)
@@ -54,6 +57,7 @@ describe TicketsController do
   end
 
   describe "GET edit" do
+    login_user
     it "assigns the requested ticket as @ticket" do
       ticket = Ticket.create! valid_attributes
       get :edit, {:id => ticket.to_param}, valid_session
@@ -62,6 +66,7 @@ describe TicketsController do
   end
 
   describe "POST create" do
+    login_user
     describe "with valid params" do
       it "creates a new Ticket" do
         expect {
@@ -99,6 +104,7 @@ describe TicketsController do
   end
 
   describe "PUT update" do
+    login_user
     describe "with valid params" do
       it "updates the requested ticket" do
         ticket = Ticket.create! valid_attributes
@@ -124,6 +130,7 @@ describe TicketsController do
     end
 
     describe "with invalid params" do
+      login_user
       it "assigns the ticket as @ticket" do
         ticket = Ticket.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
@@ -143,6 +150,8 @@ describe TicketsController do
   end
 
   describe "DELETE destroy" do
+    login_user
+
     it "destroys the requested ticket" do
       ticket = Ticket.create! valid_attributes
       expect {

@@ -21,5 +21,6 @@
   .field
     = f.label :department
     = f.collection_select :department_id, Department.all, :id, :name
+    = f.hidden_field :redirect, value: @redirect
   .actions
     = f.submit 'Save'

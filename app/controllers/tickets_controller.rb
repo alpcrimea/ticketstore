@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :except => [:create]
 
   # GET /tickets
   # GET /tickets.json
@@ -29,7 +30,13 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
+        format.html {
+          unless params['ticket']['redirect'] && params['ticket']['redirect'].length>0
+            redirect_to @ticket, notice: 'Ticket was successfully created.'
+          else
+            redirect_to view_ticket_path(url:@ticket.url), notice: 'Ticket was successfully created.'
+          end
+        }
         format.json { render action: 'show', status: :created, location: @ticket }
       else
         format.html { render action: 'new' }
