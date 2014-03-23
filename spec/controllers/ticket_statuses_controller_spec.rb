@@ -31,6 +31,7 @@ describe TicketStatusesController do
   let(:valid_session) { {} }
 
   describe "GET index" do
+    login_user
     it "assigns all ticket_statuses as @ticket_statuses" do
       ticket_status = TicketStatus.create! valid_attributes
       get :index, {}, valid_session
@@ -39,6 +40,7 @@ describe TicketStatusesController do
   end
 
   describe "GET show" do
+    login_user
     it "assigns the requested ticket_status as @ticket_status" do
       ticket_status = TicketStatus.create! valid_attributes
       get :show, {:id => ticket_status.to_param}, valid_session
@@ -47,6 +49,7 @@ describe TicketStatusesController do
   end
 
   describe "GET new" do
+    login_user
     it "assigns a new ticket_status as @ticket_status" do
       get :new, {}, valid_session
       assigns(:ticket_status).should be_a_new(TicketStatus)
@@ -54,6 +57,7 @@ describe TicketStatusesController do
   end
 
   describe "GET edit" do
+    login_user
     it "assigns the requested ticket_status as @ticket_status" do
       ticket_status = TicketStatus.create! valid_attributes
       get :edit, {:id => ticket_status.to_param}, valid_session
@@ -62,6 +66,7 @@ describe TicketStatusesController do
   end
 
   describe "POST create" do
+    login_user
     describe "with valid params" do
       it "creates a new TicketStatus" do
         expect {
@@ -99,6 +104,7 @@ describe TicketStatusesController do
   end
 
   describe "PUT update" do
+    login_user
     describe "with valid params" do
       it "updates the requested ticket_status" do
         ticket_status = TicketStatus.create! valid_attributes
@@ -143,6 +149,7 @@ describe TicketStatusesController do
   end
 
   describe "DELETE destroy" do
+    login_user
     it "destroys the requested ticket_status" do
       ticket_status = TicketStatus.create! valid_attributes
       expect {

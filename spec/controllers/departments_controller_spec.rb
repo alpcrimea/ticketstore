@@ -31,6 +31,7 @@ describe DepartmentsController do
   let(:valid_session) { {} }
 
   describe "GET index" do
+    login_user
     it "assigns all departments as @departments" do
       department = Department.create! valid_attributes
       get :index, {}, valid_session
@@ -39,6 +40,7 @@ describe DepartmentsController do
   end
 
   describe "GET show" do
+    login_user
     it "assigns the requested department as @department" do
       department = Department.create! valid_attributes
       get :show, {:id => department.to_param}, valid_session
@@ -47,6 +49,7 @@ describe DepartmentsController do
   end
 
   describe "GET new" do
+    login_user
     it "assigns a new department as @department" do
       get :new, {}, valid_session
       assigns(:department).should be_a_new(Department)
@@ -54,6 +57,7 @@ describe DepartmentsController do
   end
 
   describe "GET edit" do
+    login_user
     it "assigns the requested department as @department" do
       department = Department.create! valid_attributes
       get :edit, {:id => department.to_param}, valid_session
@@ -62,6 +66,7 @@ describe DepartmentsController do
   end
 
   describe "POST create" do
+    login_user
     describe "with valid params" do
       it "creates a new Department" do
         expect {
@@ -99,6 +104,7 @@ describe DepartmentsController do
   end
 
   describe "PUT update" do
+    login_user
     describe "with valid params" do
       it "updates the requested department" do
         department = Department.create! valid_attributes
@@ -124,6 +130,7 @@ describe DepartmentsController do
     end
 
     describe "with invalid params" do
+      login_user
       it "assigns the department as @department" do
         department = Department.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
@@ -143,6 +150,7 @@ describe DepartmentsController do
   end
 
   describe "DELETE destroy" do
+    login_user
     it "destroys the requested department" do
       department = Department.create! valid_attributes
       expect {
