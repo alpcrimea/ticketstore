@@ -14,5 +14,6 @@ class Ticket
   # Setting unique reference into ticket
   before_save do
     self.reference||=appcode
+    self.url||=appcode(10,6)
   end
 end
