@@ -24,6 +24,9 @@
     %i (we need your current password to confirm your changes)
     %br/
     = f.password_field :current_password
+  %div
+    = f.label :department
+    = f.collection_select :department_id, Department.all, :id, :name
   %div= f.submit "Update"
 %h3 Cancel my account
 %p
