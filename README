@@ -1,2 +1,7 @@
 Ticketstore
 ========================
+
+To init app by data call ./bin/init .
+All data will be erased before fullfilling.
+
+To see what realized please look Changelog.

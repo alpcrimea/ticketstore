@@ -5,12 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-puts 'ROLES'
-YAML.load(ENV['ROLES']).each do |role|
-  Role.mongo_session['roles'].insert({ :name => role })
-  puts 'role: ' << role
-end
+#
+#
+#
+
+[Role,Department,TicketStatus].each {|const|
+  title=const.to_s
+  YAML.load(ENV[title.pluralize.upcase]).each do |item|
+    const.mongo_session[title.downcase.pluralize].insert({ :name => item })
+    puts title.downcase+': ' << item
+  end
+}
 puts 'DEFAULT USERS'
 user = User.create! :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.email
+puts 'pass: ' << user.password
 user.add_role :admin

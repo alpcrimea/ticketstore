@@ -1,0 +1,13 @@
+Version 0.1
+====================================
+
+1. Prepared rails 4.0.4 project with HAML as default template engine, Devise
+as autentification layer and Mongoid as database engine.
+2. Added Ticket, TicketStatus, Department scaffolds.
+3. Added TicketEvent model.
+4. Realized validation for Ticket fields(only presense).
+5. Realized reference and url for Ticket
+6. Realized adding TicketEvents to Ticket.
+7. Realized setting of default status to first of TicketStatuses.
+8. Enabled auth for all pages excluding ticket add.
+9. Fixed all auth troubles in rspec tests.

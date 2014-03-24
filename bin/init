@@ -1,0 +1,21 @@
+#!/bin/sh
+
+export ROLES="- admin
+- user"
+export TICKETSTATUSES="
+- Waiting for Staff Response
+- Waiting for Customer
+- On Hold
+- Cancelled
+- Completed
+"
+export DEPARTMENTS="
+- All
+- Finance
+- Tech
+"
+
+export ADMIN_EMAIL="admin@example.com"
+export ADMIN_PASSWORD=qawsed123OD
+rake db:mongoid:drop
+rake db:seed
